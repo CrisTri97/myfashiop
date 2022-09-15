@@ -9,6 +9,7 @@ export default function Banner() {
         objectFit="cover"
         src={"/../public/themes/img/banner/banner-bg.jpg"}
         alt=""
+        priority
       />
       <div className="absolute bg-neutral-600/[0.2] h-full w-full">
         <div className="flex  h-full w-full flex-col items-center justify-center text-white">
