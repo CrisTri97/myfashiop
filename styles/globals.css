@@ -1,26 +1,96 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "tailwindcss/layout";
+@import "./base.css"; */
+
+.list-item-contact {
+  padding: 20px 10px;
+  cursor: pointer;
+}
+.list-item-contact:hover {
+  color: rgb(84, 84, 249);
+}
+.item-icon-nav-menu {
+  width: 70px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #f8f8f8;
+  cursor: pointer;
+  justify-content: center;
+}
+.item-icon-nav-menu:hover {
+  background-color: rgb(245, 246, 238);
+  color: rgb(84, 84, 249);
+  transition: all linear 0.5s;
+}
+.item-icon-nav-menu:last-child {
+  border-right: 1px solid #f8f8f8;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.active-menu {
+  color: rgb(84, 84, 249);
 }
 
-* {
-  box-sizing: border-box;
+.dropDown-icon-menu li {
+  padding: 20px;
+  background-color: rgb(208, 240, 250);
+  margin-right: 1px;
+  cursor: pointer;
+}
+.dropDown-icon-menu li:hover {
+  background-color: rgb(105, 200, 244);
+  color: rgb(84, 84, 249);
+}
+.dropDown-contact-menu li {
+  width: 100%;
+  height: fit-content;
+  border-bottom: 1px solid #f8f8f8;
+  padding: 10px 0;
+  cursor: pointer;
+}
+.dropDown-contact-menu li:hover {
+  color: rgb(84, 84, 249);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.shop-menu {
+  position: relative;
+}
+.shop-menu:hover .shop-menu-dropDown {
+  visibility: visible;
+  transform: translateY(29px);
+  opacity: 1;
+  transition: all linear 0.5s;
+}
+.shop-menu-dropDown {
+  visibility: hidden;
+  position: absolute;
+  transform: translateY(100px);
+  opacity: 0;
+  width: 200px;
+  height: fit-content;
+  background-color: azure;
+  color: grey;
+  font-weight: 400;
+}
+.shop-menu-dropDown li {
+  margin-top: 1px;
+
+  background-color: #fef2f2;
+  padding: 10px 0 10px 10px;
+}
+.shop-menu-dropDown li:hover {
+  background-color: blue;
+}
+
+.mobile-menu-dropDown {
+  width: 300px;
+  font-weight: 400;
+}
+.mobile-menu-dropDown li {
 }
