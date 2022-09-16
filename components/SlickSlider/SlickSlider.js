@@ -1,8 +1,9 @@
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import Image from "next/image";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import styles from "./SlickSlider.module.scss";
+
 export default function SlickSlider() {
   const settings = {
     dots: true,
@@ -12,16 +13,34 @@ export default function SlickSlider() {
     slidesToScroll: 1,
   };
   return (
-    <div className="h-full py-10 ">
+    <div className={styles.parentSlider}>
       <Slider {...settings}>
-        <div className="hot-deal-slider ">
-          <div className="img-hot-deal"></div>
+        <div className={styles.parentSlick}>
+          <div className={styles.slickImg}></div>
+
+          <div className={styles.parentText}>
+            <p>Hot Deals of </p>
+            <p>Month </p>
+            <span>Show Now</span>
+          </div>
         </div>
-        <div className="hot-deal-slider ">
-          <div className="img-hot-deal"></div>
+        <div className={styles.parentSlick}>
+          <div className={styles.slickImg}></div>
+
+          <div className={styles.parentText}>
+            <p>Hot Deals of </p>
+            <p>Month </p>
+            <span>Show Now</span>
+          </div>
         </div>
-        <div className="hot-deal-slider ">
-          <div className="img-hot-deal"></div>
+        <div className={styles.parentSlick}>
+          <div className={styles.slickImg}></div>
+
+          <div className={styles.parentText}>
+            <p>Hot Deals of </p>
+            <p>Month </p>
+            <span>Show Now</span>
+          </div>
         </div>
       </Slider>
     </div>

@@ -1,16 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import img from "../../public/themes/img/banner/banner-bg.jpg";
 
 export default function Banner() {
   return (
     <div className=" w-full  h-[700px] relative">
-      <Image
-        layout="fill"
-        objectFit="cover"
-        src={"/../public/themes/img/banner/banner-bg.jpg"}
-        alt=""
-        priority
-      />
+      <Image layout="fill" objectFit="cover" src={img} alt="" priority />
       <div className="absolute bg-neutral-600/[0.2] h-full w-full">
         <div className="flex  h-full w-full flex-col items-center justify-center text-white">
           <h3 className="text-[2rem] md:text-[3rem] lg:text-[4rem] font-semibold">
