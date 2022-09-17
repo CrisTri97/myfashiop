@@ -14,6 +14,7 @@ import pro3 from "../public/themes/img/products/xf-p-3.jpg";
 import pro4 from "../public/themes/img/products/xf-p-4.jpg";
 import pro5 from "../public/themes/img/products/xf-p-5.jpg";
 import Pagination from "../components/Pagination/Pagination";
+import Subscribe from "../components/Subscribe/Subscribe";
 
 const listProduct = [
   pro1,
@@ -36,6 +37,7 @@ const Container = styled.div`
   width: 100%;
   height: auto;
   padding: 20px 15px;
+  margin: 20px 0;
 `;
 
 export default function Home() {
@@ -52,6 +54,7 @@ export default function Home() {
           <ListProduct products={listProduct} />
           <Pagination />
         </Container>
+        <Subscribe />
         <div className="h-[300px] w-[100%]"></div>
       </main>
     </div>
