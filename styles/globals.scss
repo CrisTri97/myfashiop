@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "@fortawesome/fontawesome-svg-core/styles.css";
 /* @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -96,3 +96,41 @@
 }
 
 /* Hot deal slider */
+// .slick-arrow {
+//   top: 40%;
+//   transform: translateY(-50%);
+//   z-index: 99;
+//   width: 50px;
+//   height: 50px;
+
+//   border: 2px solid rgb(195, 193, 193);
+//   outline: none;
+//   background: transparent;
+
+//   &.slick-prev {
+//     &::before {
+//       font-family: "Font Awesome 5 Free";
+//       font-weight: 900;
+
+//       content: "<" !important;
+//       font-size: 2rem;
+//       color: rgba(239, 224, 204, 0.842) !important;
+//     }
+//     &:hover {
+//       color: rgba(59, 58, 58, 0.836);
+//     }
+//   }
+//   &.slick-next {
+//     &::before {
+//       font-family: "Font Awesome 5 Free";
+//       font-weight: 900;
+
+//       content: ">";
+//       font-size: 2rem;
+//       color: rgba(239, 224, 204, 0.842) !important;
+//     }
+//     &:hover {
+//       color: rgba(59, 58, 58, 0.836);
+//     }
+//   }
+// }

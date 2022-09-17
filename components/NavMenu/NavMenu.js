@@ -1,6 +1,10 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { MagnifyingGlassIcon, UserIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronLeftIcon,
+  MagnifyingGlassIcon,
+  UserIcon,
+} from "@heroicons/react/24/solid";
 import {
   HeartIcon,
   QueueListIcon,
