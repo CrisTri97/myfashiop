@@ -4,7 +4,7 @@ import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 export default function ItemProduct({ url }) {
   return (
     <>
-      <div className="cursor-pointer group w-[240px] h-[340px] lg:w-[200px] lg:h-[300px] rounded-md overflow-hidden  justify-center items-center relative ">
+      <div className="cursor-pointer group w-[240px] h-[340px] lg:w-[200px] lg:h-[260px] rounded-md overflow-hidden  justify-center items-center relative ">
         <Image
           className="rounded-sm"
           src={url}

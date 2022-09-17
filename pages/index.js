@@ -55,7 +55,6 @@ export default function Home() {
           <Pagination />
         </Container>
         <Subscribe />
-        <div className="h-[300px] w-[100%]"></div>
       </main>
     </div>
   );
