@@ -15,6 +15,8 @@ import pro4 from "../public/themes/img/products/xf-p-4.jpg";
 import pro5 from "../public/themes/img/products/xf-p-5.jpg";
 import Pagination from "../components/Pagination/Pagination";
 import Subscribe from "../components/Subscribe/Subscribe";
+import Layout from "../layout/Layout";
+import { getAllCategory } from "../services/productService";
 
 const listProduct = [
   pro1,
@@ -42,20 +44,22 @@ const Container = styled.div`
 
 export default function Home() {
   return (
-    <div className="overflow-hidden">
-      <HeadPage />
-      <main>
-        <Banner />
-        <div className="w-full h-auto my-5 px-10">
-          <HotDeal />
-        </div>
-        <Container>
-          <ListLogo />
-          <ListProduct products={listProduct} />
-          <Pagination />
-        </Container>
-        <Subscribe />
-      </main>
-    </div>
+    <Layout>
+      <div className="overflow-hidden">
+        <HeadPage />
+        <main>
+          <Banner />
+          <div className="w-full h-auto my-5 px-10">
+            <HotDeal />
+          </div>
+          <Container>
+            <ListLogo />
+            <ListProduct products={listProduct} />
+            <Pagination />
+          </Container>
+          <Subscribe />
+        </main>
+      </div>
+    </Layout>
   );
 }
