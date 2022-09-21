@@ -1,19 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import LayoutAmin from "../../layout/LayoutAdmin";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import TextField from "@mui/material/TextField";
-import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
-import { OutlinedInput, TextareaAutosize } from "@mui/material";
-import { getAllCategory } from "../../services/productService";
+import { getAllCategory, createProduct } from "../../services/productService";
 import CommonUtils from "../../utility/CommonUtils";
-import { Category } from "@mui/icons-material";
+
+const Container = styled.div`
+  input {
+    outline: none;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  select {
+    outline: none;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+  }
+`;
 
 export default function ManageProduct({ data }) {
   const dataUrlImg = "";
@@ -24,12 +33,8 @@ export default function ManageProduct({ data }) {
   const [description, setDescription] = React.useState("");
 
   const arrCategory = data.data;
-  const [currency, setCurrency] = React.useState("");
 
-  const handleChange = (e) => {
-    console.log(e.target);
-    setCurrency(e.target.value);
-  };
+  const [currency, setCurrency] = React.useState("");
 
   const handleOnchangeImage = async (e) => {
     const data = e.target.files;
@@ -41,94 +46,113 @@ export default function ManageProduct({ data }) {
       setUrlImg(base64);
     }
   };
-  const handleClickButton = () => {
+  const handleClickButton = async () => {
     let data = {
       categoryId: currency,
       title: title,
       price: price,
       discount: discount,
-      thumbnail: dataUrlImg,
+      thumbnail: urlImg,
       description: description,
     };
-    console.log("check data send server:", data);
+    await createProduct(data);
+    clearState();
+  };
+  const clearState = () => {
+    setCurrency(arrCategory[0]._id);
+    setDescription("");
+    setDiscount("");
+    setUrlImg("");
+    setPrice("");
+    setTitle("");
   };
 
-  console.log("check change category:", currency);
   return (
     <>
       <LayoutAmin />
-      <div className="m-auto w-[90%]">
-        <p className="text-center text-[2rem] text-green-500">MANAGE PRODUCT</p>
-        <Box
-          component="form"
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div>
-            <select onChange={(e) => handleChange(e)}>
-              {arrCategory.map((category, index) => (
-                <option key={index} value={category._id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <TextField
-            required
-            id="outlined-required"
-            label="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Discount"
-            value={discount}
-            onChange={(e) => setDiscount(e.target.value)}
-          />
-          <div className="flex justify-between">
-            <div className="w-[40%] ">
-              <label htmlFor="img-input">
-                Choose picture
+      <div className="w-[100%] py-[20px] h-[100vh] bg-red-100 m-auto">
+        <Container>
+          <div className="w-[95%] m-auto">
+            <p className="text-center text-[1.5rem] py-5 font-semibold text-green-400">
+              MANAGE PRODUCT
+            </p>
+            <div className="grid grid-cols-3 gap-4">
+              {/* Category */}
+              <div className="flex-col flex">
+                <label>Choose Category</label>
+                <select
+                  className="outline-none"
+                  value={currency}
+                  onChange={(e) => setCurrency(e.target.value)}
+                >
+                  {arrCategory &&
+                    arrCategory.length > 0 &&
+                    arrCategory.map((category, index) => {
+                      return (
+                        <option key={index} value={category._id}>
+                          {category.name}
+                        </option>
+                      );
+                    })}
+                </select>
+              </div>
+              {/* Product */}
+              <div className="flex-col flex">
+                <label>Name Product</label>
                 <input
-                  className="border-[1px] border-gray-400"
-                  id="img-input"
-                  type="file"
-                  onChange={(e) => handleOnchangeImage(e)}
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
-              </label>
+              </div>
+              {/* Price */}
+              <div className="flex-col flex">
+                <label>Price</label>
+                <input
+                  type="text"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
+              </div>
+              {/* Discount */}
+              <div className="flex flex-col">
+                <label>Discount</label>
+                <input
+                  value={discount}
+                  onChange={(e) => setDiscount(e.target.value)}
+                />
+              </div>
+              {/* Picture */}
+              <div className="flex flex-col">
+                <label>Picture</label>
+                <input type="file" onChange={(e) => handleOnchangeImage(e)} />
+              </div>
+              {/* Deleted */}
+              <div className="flex flex-col">
+                <label>Deleted</label>
+                <input />
+              </div>
+              {/* Description */}
+              <div className="flex flex-col col-span-3 ">
+                <label>Description</label>
+                <textarea
+                  rows={2}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+              </div>
             </div>
-            <div className="flex flex-col w-[60%] ">
-              <label> Description</label>
-              <TextareaAutosize
-                className="border-[1px] border-gray-500 outline-hidden"
-                aria-label="empty textarea"
-                placeholder=""
-                minRows={1}
-                style={{ width: "100%" }}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
+            {/* Button submit */}
+            <div className="mt-5 ">
+              <button
+                className="text-white hover:bg-green-700 bg-green-500 min-w-[100px] py-1 rounded-md font-semibold"
+                onClick={() => handleClickButton()}
+              >
+                Create
+              </button>
             </div>
           </div>
-        </Box>
-        <Button
-          className="bg-green-400 text-black hover:bg-green-700 mt-12 px-7"
-          onClick={() => handleClickButton()}
-        >
-          Create
-        </Button>
+        </Container>
       </div>
     </>
   );

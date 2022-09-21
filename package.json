@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cxs": "^3.0.0",
     "@emotion/cache": "^11.10.3",
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",

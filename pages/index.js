@@ -42,7 +42,7 @@ const Container = styled.div`
   margin: 20px 0;
 `;
 
-export default function Home() {
+export default function Home(props) {
   return (
     <Layout>
       <div className="overflow-hidden">
