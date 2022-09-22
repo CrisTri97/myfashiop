@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "cxs": "^3.0.0",
     "@emotion/cache": "^11.10.3",
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.10.0",
@@ -19,12 +18,14 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.11",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
     "@types/styled-components": "^5.1.26",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.1",
+    "cxs": "^3.0.0",
     "next": "12.3.0",
     "prop-types": "^15.8.1",
     "react": "18.2.0",

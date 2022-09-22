@@ -42,7 +42,7 @@ const Container = styled.div`
   margin: 20px 0;
 `;
 
-export default function Home(props) {
+export default function Home({ data }) {
   return (
     <Layout>
       <div className="overflow-hidden">
@@ -54,7 +54,7 @@ export default function Home(props) {
           </div>
           <Container>
             <ListLogo />
-            <ListProduct products={listProduct} />
+            <ListProduct products={data} />
             <Pagination />
           </Container>
           <Subscribe />
@@ -62,4 +62,15 @@ export default function Home(props) {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  // Fetch data from external API
+
+  const data = await fetch("https://fakestoreapi.com/products")
+    .then((res) => res.json())
+    .catch((err) => console.log("Connect api failed", err));
+
+  // Pass data to the page via props
+  return { props: { data } };
 }

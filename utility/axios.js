@@ -2,7 +2,7 @@ import axios from "axios";
 import _ from "lodash";
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_BACKEND_URL,
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
   // withCredentials: true,
 });
 

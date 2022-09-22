@@ -11,6 +11,7 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function NavMenu() {
   const [isShowDropMenu, setIsShowDropMenu] = useState(false);
@@ -32,7 +33,11 @@ export default function NavMenu() {
           <li className="list-item-contact shop-menu">
             SHOP
             <ul className="shop-menu-dropDown">
-              <li>SHOP CATEGORY</li>
+              <li>
+                <Link href="/category/categories">
+                  <a>SHOP CATEGORY</a>
+                </Link>
+              </li>
               <li>PRODUCT DETAIL</li>
               <li>PRODUCT CHECKOUT</li>
               <li>SHOPPING CART</li>

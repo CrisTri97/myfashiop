@@ -15,7 +15,7 @@ export default function ListProduct({ products }) {
       <div className="w-[100%] flex justify-center items-center flex-wrap  grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 ">
         {products.map((product, index) => (
           <div key={index}>
-            <ItemProduct url={product} />
+            <ItemProduct product={product} />
           </div>
         ))}
       </div>

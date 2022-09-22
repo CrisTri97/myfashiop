@@ -31,6 +31,7 @@ export default function ManageProduct({ data }) {
   const [discount, setDiscount] = React.useState("");
   const [urlImg, setUrlImg] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [deleted, setDeleted] = React.useState("");
 
   const arrCategory = data.data;
 
@@ -65,6 +66,7 @@ export default function ManageProduct({ data }) {
     setUrlImg("");
     setPrice("");
     setTitle("");
+    setDeleted("");
   };
 
   return (
@@ -109,7 +111,7 @@ export default function ManageProduct({ data }) {
               <div className="flex-col flex">
                 <label>Price</label>
                 <input
-                  type="text"
+                  type="number"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
@@ -118,6 +120,7 @@ export default function ManageProduct({ data }) {
               <div className="flex flex-col">
                 <label>Discount</label>
                 <input
+                  type="number"
                   value={discount}
                   onChange={(e) => setDiscount(e.target.value)}
                 />
@@ -130,7 +133,10 @@ export default function ManageProduct({ data }) {
               {/* Deleted */}
               <div className="flex flex-col">
                 <label>Deleted</label>
-                <input />
+                <input
+                  value={deleted}
+                  onChange={(e) => setDeleted(e.target.value)}
+                />
               </div>
               {/* Description */}
               <div className="flex flex-col col-span-3 ">

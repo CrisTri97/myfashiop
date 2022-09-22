@@ -1,17 +1,18 @@
 import Image from "next/image";
 import React from "react";
 import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-export default function ItemProduct({ url }) {
+export default function ItemProduct({ product }) {
   return (
     <>
       <div className="cursor-pointer group w-[240px] h-[340px] lg:w-[200px] lg:h-[260px] rounded-md overflow-hidden  justify-center items-center relative ">
         <Image
           className="rounded-sm"
-          src={url}
+          src={product.image}
           layout="fill"
           alt="product"
           placeholder="blur"
-          objectFit="cover"
+          blurDataURL="blue"
+          objectFit="contain"
           priority
         />
         <div className="transition-all opacity-0 ease-linear  flex absolute  text-[1.3rem]  bottom-[20%] transform  right-[-40%] z-10 group-hover:right-[20%] duration-[0.2s] group-hover:opacity-100">
@@ -23,11 +24,11 @@ export default function ItemProduct({ url }) {
           </div>
         </div>
       </div>
-      <div className="text-center mt-2">
-        <h3 className="font-semibold hover:text-blue-500 cursor-pointer">
-          Long Steven TShirt
+      <div className="text-center w-[100%] flex-wrap mt-2">
+        <h3 className="font-semibold max-w-fit hover:text-blue-500  cursor-pointer">
+          {product.title}
         </h3>
-        <p>$150.000</p>
+        <p>{product.price}</p>
       </div>
     </>
   );
